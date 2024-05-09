@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pfeprojectcar/features/authentications/controllers/signup/signup_controller.dart';
 import 'package:pfeprojectcar/utils/constants/colors.dart';
 import 'package:pfeprojectcar/utils/constants/sizes.dart';
 import 'package:pfeprojectcar/utils/constants/texts_string.dart';
@@ -10,13 +12,15 @@ class TermConditionCheckBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
         final dark = THelperFunctions.isDarkMode(context);
+        final controller = Get.put(SignUpController());
 
     return Row(
           children: [
             SizedBox(
                 width: 24,
                 height: 24,
-                child: Checkbox(value: true, onChanged: (value) {})),
+                child: Obx(() => Checkbox(value: controller.privacyPolicy.value, 
+                onChanged: (value) => controller.privacyPolicy.value = !controller.privacyPolicy.value))),
             const SizedBox(
               width: TSizes.spaceBtwItems,
             ),

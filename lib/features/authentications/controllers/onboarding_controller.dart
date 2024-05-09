@@ -2,6 +2,7 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:pfeprojectcar/features/authentications/views/login/login.dart';
 
 class OnBoardingController extends GetxController {
@@ -16,6 +17,8 @@ class OnBoardingController extends GetxController {
   }
   void nextPage() {
     if (currentPageIndex.value == 1 ) {
+      final  storage = GetStorage();
+      storage.write('firstTimeOnly', false);
       Get.offAll(const LoginScreen());
     } else {
       int page = currentPageIndex.value +1 ;

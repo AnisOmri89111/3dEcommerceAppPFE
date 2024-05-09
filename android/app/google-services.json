@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "1081236797845",
+    "project_id": "carecommerce-fbdcc",
+    "storage_bucket": "carecommerce-fbdcc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081236797845:android:cc08657e580a5ccd199e9c",
+        "android_client_info": {
+          "package_name": "com.example.carecommerce3d"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081236797845-joi08msgmq27a72aspqu642qm7q8jq45.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.carecommerce3d",
+            "certificate_hash": "da8447543294ebe5d9ff3f43f47b418bfe4c2c50"
+          }
+        },
+        {
+          "client_id": "1081236797845-dsup51mf15p2i4vqg03ugarq0o5j7609.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE215VmwNlZzS-R9WjDuZjr6YtNVMMCqE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081236797845-dsup51mf15p2i4vqg03ugarq0o5j7609.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1081236797845-7an2b1kq7i85gi4qableg9d390n69kmk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.carecommerce3d"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081236797845:android:6adb6cec26b675f1199e9c",
+        "android_client_info": {
+          "package_name": "com.example.pfeprojectcar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081236797845-dsup51mf15p2i4vqg03ugarq0o5j7609.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE215VmwNlZzS-R9WjDuZjr6YtNVMMCqE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081236797845-dsup51mf15p2i4vqg03ugarq0o5j7609.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1081236797845-7an2b1kq7i85gi4qableg9d390n69kmk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.carecommerce3d"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

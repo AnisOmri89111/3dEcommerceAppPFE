@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pfeprojectcar/features/authentications/views/onboarding/onboarding.dart';
+import 'package:pfeprojectcar/bindings/general_binding.dart';
+import 'package:pfeprojectcar/utils/constants/colors.dart';
 import 'package:pfeprojectcar/utils/theme/theme.dart';
 
 class App extends StatelessWidget {
@@ -13,7 +14,12 @@ class App extends StatelessWidget {
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      home: const OnBoardingScreen(),
+      initialBinding: GeneralBinding(),
+      home: const Scaffold(backgroundColor: TColors.primary, 
+      body: Center(
+        child: CircularProgressIndicator(color: Colors.white,),
+      ),
+      ),
     );
   }
 }
