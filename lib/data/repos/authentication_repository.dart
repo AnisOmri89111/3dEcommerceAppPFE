@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:pfeprojectcar/features/authentications/views/login/login.dart';
 import 'package:pfeprojectcar/features/authentications/views/onboarding/onboarding.dart';
+import 'package:pfeprojectcar/features/authentications/views/signup/widgets/emailverif_screen.dart';
+import 'package:pfeprojectcar/navigation_bar.dart';
 import 'package:pfeprojectcar/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:pfeprojectcar/utils/exceptions/firebase_exceptions.dart';
 import 'package:pfeprojectcar/utils/exceptions/format_exceptions.dart';
@@ -23,9 +25,36 @@ void onReady() {
   screenRedirect();
 }
 screenRedirect() async{
- //local storage
+  final  user = _auth.currentUser ;
+  if (user != null) {
+    if (user.emailVerified) {
+      Get.offAll(() => const NavigationScreen());
+    }else{
+      Get.offAll(() =>  EmailVerificationScreen(email:_auth.currentUser?.email  ,));
+    }
+  }else{
+     //local storage
+
  deviceStorage.writeIfNull('firstTimeOnly', true);
  deviceStorage.read('firstTimeOnly') != true ? Get.offAll(() => const LoginScreen()) : Get.offAll(() => const OnBoardingScreen());
+  }
+ 
+}
+//Login
+Future <UserCredential> loginWithEmailAndPassword(String email , String password) async{
+  try {
+    return await _auth.signInWithEmailAndPassword(email: email, password: password);
+  } on FirebaseAuthException catch (e) {
+    throw TFirebaseAuthException(e.code).message;
+  } on FirebaseException catch (e) {
+    throw TFirebaseException(e.code).message;
+  } on FormatException catch (_) {
+    throw const TFormatException();
+  } on PlatformException catch (e) {
+    throw TPlatformException(e.code).message;
+  }catch(e){
+    throw 'something went wrong , please try again !';
+  }
 }
 
 //Registration 
@@ -44,6 +73,37 @@ Future <UserCredential> registerWithEmailAndPassword(String email , String passw
     throw 'something went wrong , please try again !';
   }
 }
-
+//Verification Email sent 
+ Future<void> sendVerificationEmail () async {
+      try {
+        return await _auth.currentUser?.sendEmailVerification();
+      } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+      } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+      } on FormatException catch (_) {
+      throw const TFormatException();
+      } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+      }catch(e){
+      throw 'something went wrong , please try again !';
+  }
+    }
+  Future <void> logOut () async{
+    try {
+      await FirebaseAuth.instance.signOut();
+      Get.offAll(() => const LoginScreen());
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+      } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+      } on FormatException catch (_) {
+      throw const TFormatException();
+      } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+      }catch(e){
+      throw 'something went wrong , please try again !';
+  }
+  }
 }
 

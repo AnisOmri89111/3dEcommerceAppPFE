@@ -12,6 +12,7 @@ class ImageString {
   //Animation
 
   static const String docerAnimation = "assets/images/animations/141594-animation-of-docer.json";
+  static const String verificationComplete = "assets/images/animations/7efs.gif";
 
   // -- Gif Animation 
   static const String productsIllustration = "assets/images/animations/sammy-line-workout.gif";

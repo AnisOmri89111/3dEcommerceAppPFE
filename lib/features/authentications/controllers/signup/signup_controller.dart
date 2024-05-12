@@ -60,7 +60,7 @@ class SignUpController extends GetxController {
     profilePicture: '');
 
     final userRepository = Get.put(UserRepository());
-    await userRepository.SaveUserRecord(newUser) ;
+    await userRepository.saveUserRecord(newUser) ;
 
     TFullScreenLoader.stopLoading();
 
@@ -70,7 +70,13 @@ class SignUpController extends GetxController {
 
     // Move to verify Email Screen
 
-    Get.to(() => const EmailVerificationScreen()) ;
+    Get.to(() =>  EmailVerificationScreen(email: email.text.trim(),)) ;
+
+
+
+    //Send Verification email 
+
+   
 
   } catch (e) {
    TFullScreenLoader.stopLoading();
