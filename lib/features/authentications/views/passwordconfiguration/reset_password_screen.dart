@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pfeprojectcar/features/authentications/controllers/forget_password/forgetpassword_controller.dart';
 import 'package:pfeprojectcar/features/authentications/views/login/login.dart';
 import 'package:pfeprojectcar/utils/constants/image_string.dart';
 import 'package:pfeprojectcar/utils/constants/sizes.dart';
@@ -8,8 +9,8 @@ import 'package:pfeprojectcar/utils/constants/texts_string.dart';
 import 'package:pfeprojectcar/utils/helpers/helper_function.dart';
 
 class ResetPassword extends StatelessWidget {
-  const ResetPassword({super.key});
-
+  const ResetPassword({super.key , required this.email});
+  final String email ;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,9 +33,9 @@ class ResetPassword extends StatelessWidget {
             const SizedBox(height: TSizes.spaceBtwItems,),
 
             //button
-            SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () => Get.to(()=> const LoginScreen()) , child: const Text(TTexts.done))),
+            SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () => Get.offAll(() => const LoginScreen()) , child: const Text(TTexts.done))),
             const SizedBox(height: TSizes.spaceBtwItems,),
-            SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () {} , child: const Text(TTexts.resendEmail))),
+            SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () => ForgetPasswordController.instance.resendPasswordResetEmail(email) , child: const Text(TTexts.resendEmail))),
 
             ],
           ),

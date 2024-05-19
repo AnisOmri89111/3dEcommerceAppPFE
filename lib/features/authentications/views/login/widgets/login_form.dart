@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:pfeprojectcar/features/authentications/controllers/login/login_controller.dart';
 import 'package:pfeprojectcar/features/authentications/views/passwordconfiguration/forgot_password_screen.dart';
 import 'package:pfeprojectcar/features/authentications/views/signup/signup.dart';
-import 'package:pfeprojectcar/navigation_bar.dart';
 import 'package:pfeprojectcar/utils/constants/sizes.dart';
 import 'package:pfeprojectcar/utils/constants/texts_string.dart';
 import 'package:pfeprojectcar/utils/validators/validation.dart';

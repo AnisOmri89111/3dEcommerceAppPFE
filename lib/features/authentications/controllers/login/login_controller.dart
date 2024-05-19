@@ -3,12 +3,14 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:pfeprojectcar/common/widgets/connectionchecker/network_manager.dart';
 import 'package:pfeprojectcar/data/repos/authentication_repository.dart';
+import 'package:pfeprojectcar/features/personalizations/controllers/user_controller.dart';
 import 'package:pfeprojectcar/utils/constants/image_string.dart';
 import 'package:pfeprojectcar/utils/popups/full_screen_loader.dart';
 import 'package:pfeprojectcar/utils/popups/loader.dart';
 
 class LoginController extends GetxController{
   static LoginController get instance => Get.find() ;
+  final userController = Get.put(UserController());
   final localStorage = GetStorage() ;
   final hidePassword = false.obs ;
   final rememberMe = true.obs;
@@ -63,5 +65,28 @@ class LoginController extends GetxController{
    TFullScreenLoader.stopLoading();
    TLoader.errorSnackBar(title: 'on snaps !! ' , message: e.toString());
   }
+ }
+ //Goggle Sign In 
+ Future <void> googleSignIn () async{
+   try {
+          //Start Loading
+    TFullScreenLoader.openLoadingDialog("logging IN...", ImageString.docerAnimation);
+    //Connectivity Check
+    final isConnected = await NetworkManager.instance.isConnected();
+    if (!isConnected) {
+      TFullScreenLoader.stopLoading();
+
+      return ;
+    }
+
+    final userCredential = await AuthenticationRepository.instance.signInWithGoogle();
+    await userController.saveUserRecords(userCredential); 
+    TFullScreenLoader.stopLoading();
+    AuthenticationRepository.instance.screenRedirect();
+   } catch (e) {
+    TFullScreenLoader.stopLoading();
+   TLoader.errorSnackBar(title: 'on snaps !! ' , message: e.toString());
+   }
+
  }
 }

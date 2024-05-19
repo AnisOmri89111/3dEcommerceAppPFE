@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pfeprojectcar/features/authentications/views/passwordconfiguration/reset_password_screen.dart';
+import 'package:pfeprojectcar/features/authentications/controllers/forget_password/forgetpassword_controller.dart';
 import 'package:pfeprojectcar/utils/constants/sizes.dart';
 import 'package:pfeprojectcar/utils/constants/texts_string.dart';
+import 'package:pfeprojectcar/utils/validators/validation.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ForgetPasswordController());
     return Scaffold(
       appBar: AppBar(),
       body:  Padding(
@@ -23,13 +25,18 @@ class ForgotPasswordScreen extends StatelessWidget {
           const SizedBox(height: TSizes.spaceBtwSections *2,),
 
             //TextField
-          TextFormField(
-            decoration: const InputDecoration(labelText: TTexts.email , prefixIcon: Icon(Icons.arrow_right_sharp)),
+          Form(
+            key: controller.forgetPasswordFormKey,
+            child: TextFormField(
+              controller: controller.email,
+              validator: TValidator.validateEmail,
+              decoration: const InputDecoration(labelText: TTexts.email , prefixIcon: Icon(Icons.arrow_right_sharp)),
+            ),
           ),
 
           const SizedBox(height: TSizes.spaceBtwSections,),
           //Button
-          SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () => Get.to(() => const ResetPassword()), child: const Text(TTexts.submit)))
+          SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () => controller.sendPasswordResetEmail() , child: const Text(TTexts.submit)))
           ],
         ),
       ),
