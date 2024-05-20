@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pfeprojectcar/common/widgets/list_files/userprofile_file.dart';
+import 'package:pfeprojectcar/features/personalizations/views/profile/settings.dart';
 import 'package:pfeprojectcar/features/shop/view/home/home_screen.dart';
-import 'package:pfeprojectcar/features/shop/view/profile/profile_screen.dart';
 import 'package:pfeprojectcar/features/shop/view/store/store_screen.dart';
 import 'package:pfeprojectcar/features/shop/view/wishlist/wishlist_screen.dart';
 import 'package:pfeprojectcar/utils/constants/colors.dart';
@@ -40,5 +41,5 @@ class NavigationScreen extends StatelessWidget {
 
 class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
-  final screens = [const HomeScreen(),const StoreScreen(),const WishListScreen(),const ProfileScreen()];
+  final screens = [const HomeScreen(),const StoreScreen(),const WishListScreen(),const ProfileSettingScreen()];
 }
