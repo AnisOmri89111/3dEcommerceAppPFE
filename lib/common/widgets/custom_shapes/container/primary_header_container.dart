@@ -13,9 +13,6 @@ class CustomHeader extends StatelessWidget {
     return  CurvedEdgeWidget(
               child:  Container(
                  color: TColors.primary,
-                 padding: const EdgeInsets.all(0),
-                 child: SizedBox(
-                   height: 400,
                    child: Stack(
                     children: [
                     Positioned(top: -150 , right: -250, child: CustomContainer(backgroundColor: TColors.textWhite.withOpacity(0.1))),
@@ -23,7 +20,7 @@ class CustomHeader extends StatelessWidget {
                     child
                     ],
                    ),
-                 ),
+                
                 
                 )
              );

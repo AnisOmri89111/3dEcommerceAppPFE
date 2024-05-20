@@ -44,6 +44,7 @@ flutter:
     - assets/images/on_boarding_images/
     - assets/logos/
     - assets/images/animations/
+    - assets/images/content/
 
 
   fonts:
