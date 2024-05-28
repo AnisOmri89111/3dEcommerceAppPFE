@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pfeprojectcar/common/widgets/Loaders/shimmer/shimmer.dart';
 import 'package:pfeprojectcar/utils/constants/colors.dart';
 import 'package:pfeprojectcar/utils/constants/sizes.dart';
 import 'package:pfeprojectcar/utils/helpers/helper_function.dart';
-
+import 'package:cached_network_image/cached_network_image.dart';
 class CustomCircularImage extends StatelessWidget {
   const CustomCircularImage({
 
@@ -32,11 +33,22 @@ class CustomCircularImage extends StatelessWidget {
         color: backGroundColor ??(THelperFunctions.isDarkMode(context) ? TColors.black : TColors.white),
         borderRadius: BorderRadius.circular(100),
       ),
-      child: Center(
-        child: Image(
-          fit: fit,
-          image: isNetworkImage ? NetworkImage(image) : AssetImage(image) as ImageProvider,
-          color: overlayColor,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(100),
+        child: Center(
+          child: isNetworkImage ?
+          CachedNetworkImage(
+            fit: fit,
+            color: overlayColor,
+            imageUrl: image,
+            progressIndicatorBuilder:(context, url, progress) => const ShimmerLoader(width: 55, height: 55 , radius: 55,),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+            )
+            :Image(
+            fit: fit,
+            image:  AssetImage(image) as ImageProvider,
+            color: overlayColor,
+          ),
         ),
       ),
     );

@@ -5,6 +5,7 @@ import 'package:pfeprojectcar/common/widgets/appbar/appbar.dart';
 import 'package:pfeprojectcar/common/widgets/custom_shapes/container/primary_header_container.dart';
 import 'package:pfeprojectcar/common/widgets/customheader/customsectionheader.dart';
 import 'package:pfeprojectcar/common/widgets/list_files/userprofile_file.dart';
+import 'package:pfeprojectcar/data/repos/authentication_repository.dart';
 import 'package:pfeprojectcar/features/shop/view/profile/setting_menu.dart';
 import 'package:pfeprojectcar/features/shop/view/profile/widget/profile_screen_edit.dart';
 import 'package:pfeprojectcar/utils/constants/colors.dart';
@@ -45,7 +46,7 @@ const
                  SizedBox(height: TSizes.spaceBtwSections,),
                  SizedBox(
                 width: double.infinity,
-                child: OutlinedButton(onPressed: (){}, child: const Text('logout')),
+                child: OutlinedButton(onPressed: () => AuthenticationRepository.instance.logOut(), child: const Text('logout')),
                  )
                 ],
               ),

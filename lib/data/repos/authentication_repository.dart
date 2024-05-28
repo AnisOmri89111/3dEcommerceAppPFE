@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
@@ -19,6 +20,7 @@ static AuthenticationRepository get instance => Get.find() ;
 final deviceStorage = GetStorage() ;
 final _auth = FirebaseAuth.instance;
 
+User? get authUser => _auth.currentUser ;
 @override 
 void onReady() {
   FlutterNativeSplash.remove();
@@ -139,10 +141,11 @@ Future<UserCredential?> signInWithGoogle () async {
       throw TFirebaseException(e.code).message;
       } on FormatException catch (_) {
       throw const TFormatException();
-      } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
       }catch(e){
-      throw 'something went wrong , please try again !';
+        if (kDebugMode) 
+          print('something went wrong , please try again !');
+          return null ;
+        
   }
 }
 }

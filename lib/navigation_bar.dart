@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pfeprojectcar/common/widgets/list_files/userprofile_file.dart';
-import 'package:pfeprojectcar/features/personalizations/views/profile/settings.dart';
 import 'package:pfeprojectcar/features/shop/view/home/home_screen.dart';
+import 'package:pfeprojectcar/features/shop/view/profile/setting_profile_screen.dart';
 import 'package:pfeprojectcar/features/shop/view/store/store_screen.dart';
 import 'package:pfeprojectcar/features/shop/view/wishlist/wishlist_screen.dart';
 import 'package:pfeprojectcar/utils/constants/colors.dart';

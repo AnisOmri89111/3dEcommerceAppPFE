@@ -19,8 +19,8 @@ class LoginController extends GetxController{
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   @override
   void onInit() {
-    email.text = localStorage.read('REMEMBER_ME_EMAIL');
-    password.text = localStorage.read('REMEMBER_ME_PASSWORD');
+   /* email.text = localStorage.read('REMEMBER_ME_EMAIL');
+    password.text = localStorage.read('REMEMBER_ME_PASSWORD');*/
     super.onInit();
   }
 
@@ -42,11 +42,11 @@ class LoginController extends GetxController{
       return;
     }
     //rememberMe storing data
-    if (rememberMe.value) {
+    /*if (rememberMe.value) {
       localStorage.write('REMEMBER_ME_EMAIL', email.text.trim());
       localStorage.write('REMEMBER_ME_PASSWORD', password.text.trim());
 
-    }
+    }*/
     //firebase Authentication login 
    final userCredential = await AuthenticationRepository.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 

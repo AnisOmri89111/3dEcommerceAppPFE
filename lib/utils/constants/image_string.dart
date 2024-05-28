@@ -23,4 +23,18 @@ class ImageString {
   static const String verifyIllustration = "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
   //default user profile 
   static const String user = "assets/images/content/user.png";
+  //categories icons 
+  static const String icon1 ="assets/icons/categories/icons8-bowling-64.png";
+
+  //Banners
+    static const String banner1 ="assets/images/banners/banner_1.jpg";
+    static const String banner2 ="assets/images/banners/banner_2.jpg";
+    static const String banner3 ="assets/images/banners/banner_3.jpg";
+
+  //Products
+  static const String car1 = "assets/images/products/car1.jpg";
+  static const String car2 = "assets/images/products/car2.jpg";
+  static const String car3 = "assets/images/products/car3.jpg";
+  static const String car4 = "assets/images/products/car4.jpg";
+
 }

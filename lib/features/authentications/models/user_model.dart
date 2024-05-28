@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pfeprojectcar/utils/formatters/formatter.dart';
 
 class UserModel {
@@ -47,5 +48,20 @@ class UserModel {
     "PhoneNumber": phoneNumber,
     "ProfilePicture": profilePicture
     } ;
+  }
+  factory UserModel.fromSnapshot(DocumentSnapshot <Map<String , dynamic>> document){
+    if (document.data() != null) {
+      final data = document.data()! ;
+      return UserModel(
+        id: document.id, 
+        firstName: data['firstName'] ?? '', 
+        lastName: data['lastName'] ?? '', 
+        username: data['username'] ?? '', 
+        email: data['Email'] ?? '', 
+        phoneNumber: data['PhoneNumber'] ?? '', 
+        profilePicture: data['ProfilePicture'] ?? '');
+    }else {
+      return UserModel.empty();
+    } 
   }
 }
