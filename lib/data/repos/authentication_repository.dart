@@ -142,8 +142,9 @@ Future<UserCredential?> signInWithGoogle () async {
       } on FormatException catch (_) {
       throw const TFormatException();
       }catch(e){
-        if (kDebugMode) 
+        if (kDebugMode) {
           print('something went wrong , please try again !');
+        }
           return null ;
         
   }

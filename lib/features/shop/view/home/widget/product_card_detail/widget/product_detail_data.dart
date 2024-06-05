@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pfeprojectcar/common/widgets/custom_shapes/container/circular_container.dart';
 import 'package:pfeprojectcar/common/widgets/texts/section_heading.dart';
-import 'package:pfeprojectcar/features/shop/view/3D/3d_work.dart';
 import 'package:pfeprojectcar/features/shop/view/home/widget/product_card/product_price.dart';
 import 'package:pfeprojectcar/utils/constants/colors.dart';
 import 'package:pfeprojectcar/utils/constants/sizes.dart';
 import 'package:pfeprojectcar/utils/helpers/helper_function.dart';
-import 'package:readmore/readmore.dart';
 class ProductDetailData extends StatelessWidget {
   const ProductDetailData({super.key});
 

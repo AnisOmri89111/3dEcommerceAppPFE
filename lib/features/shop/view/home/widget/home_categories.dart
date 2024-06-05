@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:pfeprojectcar/common/widgets/Loaders/shimmer/category_shimmer.dart';
 import 'package:pfeprojectcar/features/shop/controller/category/category_controller.dart';
 import 'package:pfeprojectcar/features/shop/view/home/widget/categories_detail.dart';
-import 'package:pfeprojectcar/utils/constants/image_string.dart';
+import 'package:pfeprojectcar/features/shop/view/home/widget/product_card_detail/subcotegory_widget.dart';
 
 class HomeCategories extends StatelessWidget {
   const HomeCategories({super.key});
@@ -23,7 +23,8 @@ class HomeCategories extends StatelessWidget {
                           itemCount: categoryController.allCategories.length,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (_ , index) {
-                            return CategoriesDetails(image: ImageString.icon1, text: 'first category' , onTap: () {},) ;
+                            final category = categoryController.featuredCategory[index] ;
+                            return CategoriesDetails(image: category.image, text: category.name , onTap: () => Get.to(() => const SubCategoryWidget()),) ;
                           }),
                       );
     });

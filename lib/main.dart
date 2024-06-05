@@ -11,9 +11,8 @@ Future<void> main() async{
   //Edit Widget Binding
   final WidgetsBinding widgetBinding = WidgetsFlutterBinding.ensureInitialized();
 
-  //GetxStorage Initialisation 
+//GetxStorage Initialisation 
   await GetStorage.init();
-
   //Splash Screen Once
   FlutterNativeSplash.preserve(widgetsBinding: widgetBinding) ;
   //Firebase Initialization 

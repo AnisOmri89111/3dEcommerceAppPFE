@@ -18,114 +18,122 @@ class CustomProductCardVertical extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context) ;
+    final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () =>Get.to(() => const  ProductDetailScreen()),
+      onTap: () => Get.to(() => const ProductDetailScreen()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
           boxShadow: [CustomShadowStyle.verticalProductShadow],
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
-          color: dark? TColors.darkerGrey : TColors.white,
+          color: dark ? TColors.darkerGrey : TColors.white,
         ),
         child: Column(
           children: [
             //thumbnail wishlist button and discount tag
             CustomContainer(
               height: 180,
-              padding: const  EdgeInsets.all(TSizes.sm),
+              padding: const EdgeInsets.all(TSizes.sm),
               backgroundColor: dark ? TColors.dark : TColors.light,
               child: Stack(
                 children: [
-                  const RoundedImage(imgUrl: ImageString.car4 , applyImageRadius: true,),
-                   CustomContainer(
+                  const RoundedImage(
+                    imgUrl: ImageString.car4,
+                    applyImageRadius: true,
+                  ),
+                  CustomContainer(
                     radius: TSizes.sm,
                     backgroundColor: TColors.secondary.withOpacity(0.8),
-                    padding: const EdgeInsets.symmetric(horizontal: TSizes.sm , vertical: TSizes.xs),
-                    child: Text('25%' , style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.black),),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: TSizes.sm, vertical: TSizes.xs),
+                    child: Text(
+                      '25%',
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelLarge!
+                          .apply(color: TColors.black),
+                    ),
                   ),
-                
+
                   //Favourute Icon button
-                 const Positioned(top : 0 , right : 0 ,child: CustomCircularIcon(icon: Iconsax.heart5 , color: Colors.red,))
+                  const Positioned(
+                      top: 0,
+                      right: 0,
+                      child: CustomCircularIcon(
+                        icon: Iconsax.heart5,
+                        color: Colors.red,
+                      ))
                 ],
               ),
             ),
             //Details
-            const SizedBox(height: TSizes.spaceBtwItems/2,),
-            Padding(padding: const EdgeInsets.only(left: TSizes.sm),
-            child: Column(
-              children: [
-              const ProductTitleText(title: 'isuzu Trooper 2WD ' ,smallSize: true, ),
-              const SizedBox(height: TSizes.spaceBtwItems/2,),
-              Row(children: [
-                Text('Isuzu' , overflow: TextOverflow.ellipsis, maxLines: 1, style: Theme.of(context).textTheme.labelMedium,),
-                const SizedBox(width: TSizes.xs,),
-                const Icon(Iconsax.verify5, color: TColors.primary, size: TSizes.iconXs,)
-              ],
-              ),
-               ],
+            const SizedBox(
+              height: TSizes.spaceBtwItems / 2,
             ),
-            
-            ),
-              const Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Padding(
+              padding: const EdgeInsets.only(left: TSizes.sm),
+              child: Column(
                 children: [
-                  //price
-                 const Padding(
-                   padding:  EdgeInsets.only(left : TSizes.sm ),
-                   child:  ProductPriceText(price: '29,065'),
-                 ),
-                  Container(
-                    decoration: const BoxDecoration(
-                      color: TColors.dark,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(TSizes.cardRadiusMd),
-                        bottomRight: Radius.circular(TSizes.productImageRadius)
+                  const ProductTitleText(
+                    title: 'isuzu Trooper 2WD ',
+                    smallSize: true,
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems / 2,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        'Isuzu',
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: Theme.of(context).textTheme.labelMedium,
                       ),
-                    ),
-                    child: const SizedBox(
-                      width: TSizes.iconLg*1.2,
-                      height: TSizes.iconLg*1.2,
-                      child: Icon(Iconsax.add , color: TColors.white,),
-                    ),
-                  )
+                      const SizedBox(
+                        width: TSizes.xs,
+                      ),
+                      const Icon(
+                        Iconsax.verify5,
+                        color: TColors.primary,
+                        size: TSizes.iconXs,
+                      )
+                    ],
+                  ),
                 ],
-              )
+              ),
+            ),
+            const Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                //price
+                const Padding(
+                  padding: EdgeInsets.only(left: TSizes.sm),
+                  child: ProductPriceText(price: '29,065'),
+                ),
+                Container(
+                  decoration: const BoxDecoration(
+                    color: TColors.dark,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(TSizes.cardRadiusMd),
+                        bottomRight:
+                            Radius.circular(TSizes.productImageRadius)),
+                  ),
+                  child: const SizedBox(
+                    width: TSizes.iconLg * 1.2,
+                    height: TSizes.iconLg * 1.2,
+                    child: Icon(
+                      Iconsax.add,
+                      color: TColors.white,
+                    ),
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

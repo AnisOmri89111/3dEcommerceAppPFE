@@ -36,5 +36,20 @@ class ImageString {
   static const String car2 = "assets/images/products/car2.jpg";
   static const String car3 = "assets/images/products/car3.jpg";
   static const String car4 = "assets/images/products/car4.jpg";
-
+  //Icons 
+  static const String icon2 = 'assets/icons/categories/icons8-shoes-64.png' ;
+   static const String icon3 = 'assets/icons/categories/icons8-bowling-64.png' ;
+  static const String icon4 = 'assets/icons/categories/icons8-sparkling-diamond-64.png' ;
+  static const String icon5 = 'assets/icons/categories/icons8-wooden-toy-car-50.png' ;
+ 
+ // -- Payment Methods
+  static const String applePay = "assets/icons/payment_methods/apple-pay.png";
+  static const String googlePay = "assets/icons/payment_methods/google-pay.png";
+  static const String creditCard = "assets/icons/payment_methods/credit-card.png";
+  static const String masterCard = "assets/icons/payment_methods/master-card.png";
+  static const String paypal = "assets/icons/payment_methods/paypal.png";
+  static const String visa = "assets/icons/payment_methods/visa.png";
+  static const String paystack = "assets/icons/payment_methods/paystack.png";
+  static const String paytm = "assets/icons/payment_methods/paytm.png";
+  static const String successfulPaymentIcon = "assets/icons/payment_methods/successful_payment_icon.png";
 }

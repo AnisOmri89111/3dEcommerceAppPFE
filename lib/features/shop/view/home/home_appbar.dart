@@ -4,6 +4,7 @@ import 'package:pfeprojectcar/common/widgets/Loaders/shimmer/shimmer.dart';
 import 'package:pfeprojectcar/common/widgets/appbar/appbar.dart';
 import 'package:pfeprojectcar/common/widgets/shopcart/cart_menu_icon.dart';
 import 'package:pfeprojectcar/features/personalizations/controllers/user_controller.dart';
+import 'package:pfeprojectcar/features/shop/view/Cart/cart_screen.dart';
 import 'package:pfeprojectcar/utils/constants/colors.dart';
 import 'package:pfeprojectcar/utils/constants/texts_string.dart';
 
@@ -30,7 +31,7 @@ class HomeAppBar extends StatelessWidget {
                 ,
               ),
               actions: [
-               CartMenuWidget(iconColor: TColors.white, onPressed: () {})
+               CartMenuWidget(iconColor: TColors.white, onPressed: () => Get.to(() => const CartScreen()))
               ],
              );
   }
