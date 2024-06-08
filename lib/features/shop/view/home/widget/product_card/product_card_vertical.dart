@@ -5,22 +5,23 @@ import 'package:pfeprojectcar/common/styles/shadows.dart';
 import 'package:pfeprojectcar/common/widgets/custom_shapes/container/circular_container.dart';
 import 'package:pfeprojectcar/common/widgets/icons/circular_icon.dart';
 import 'package:pfeprojectcar/common/widgets/texts/section_heading.dart';
+import 'package:pfeprojectcar/features/shop/models/car/car_model.dart';
 import 'package:pfeprojectcar/features/shop/view/home/widget/product_card/product_price.dart';
 import 'package:pfeprojectcar/features/shop/view/home/widget/product_card_detail/product_card_detail.dart';
 import 'package:pfeprojectcar/features/shop/view/home/widget/rounded_image.dart';
 import 'package:pfeprojectcar/utils/constants/colors.dart';
-import 'package:pfeprojectcar/utils/constants/image_string.dart';
 import 'package:pfeprojectcar/utils/constants/sizes.dart';
 import 'package:pfeprojectcar/utils/helpers/helper_function.dart';
 
 class CustomProductCardVertical extends StatelessWidget {
-  const CustomProductCardVertical({super.key});
+  const CustomProductCardVertical({super.key, required this.carProducts});
 
+  final CarModels carProducts ;
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () => Get.to(() => const ProductDetailScreen()),
+      onTap: () => Get.to(() =>  ProductDetailScreen(carProducts: carProducts,)),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -38,9 +39,10 @@ class CustomProductCardVertical extends StatelessWidget {
               backgroundColor: dark ? TColors.dark : TColors.light,
               child: Stack(
                 children: [
-                  const RoundedImage(
-                    imgUrl: ImageString.car4,
-                    applyImageRadius: true,
+                   RoundedImage(
+                    imgUrl: carProducts.image,
+                    applyImageRadius: true, 
+                    isNetworkImage: true,
                   ),
                   CustomContainer(
                     radius: TSizes.sm,
@@ -75,8 +77,8 @@ class CustomProductCardVertical extends StatelessWidget {
               padding: const EdgeInsets.only(left: TSizes.sm),
               child: Column(
                 children: [
-                  const ProductTitleText(
-                    title: 'isuzu Trooper 2WD ',
+                   ProductTitleText(
+                    title: carProducts.name,
                     smallSize: true,
                   ),
                   const SizedBox(
@@ -108,9 +110,9 @@ class CustomProductCardVertical extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //price
-                const Padding(
-                  padding: EdgeInsets.only(left: TSizes.sm),
-                  child: ProductPriceText(price: '29,065'),
+                 Padding(
+                  padding: const EdgeInsets.only(left: TSizes.sm),
+                  child: ProductPriceText(price: '${carProducts.price}'),
                 ),
                 Container(
                   decoration: const BoxDecoration(

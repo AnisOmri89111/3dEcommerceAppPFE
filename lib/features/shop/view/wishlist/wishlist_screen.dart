@@ -22,14 +22,14 @@ class WishListScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(TSizes.defaultSpace),
-            child: Column(
+          /*  child: Column(
               children: [
                 CustomGridLayouts(
                   intemCounts: 4, 
-                  itemBuilder: (__ , index) => const CustomProductCardVertical()
+                  itemBuilder: (__ , index) => const CustomProductCardVertical(carProducts: null,)
                   )
               ],
-            ),
+            ),*/
             ),
         ),
       

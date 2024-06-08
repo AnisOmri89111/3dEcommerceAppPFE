@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pfeprojectcar/features/shop/models/car/car_model.dart';
 import 'package:pfeprojectcar/features/shop/view/3D/3d_work.dart';
 import 'package:pfeprojectcar/features/shop/view/home/widget/product_card/bottom_add_to_cart_widget.dart';
 import 'package:pfeprojectcar/features/shop/view/home/widget/product_card_detail/widget/product-detail_image.dart';
 import 'package:pfeprojectcar/features/shop/view/home/widget/product_card_detail/widget/product_detail_data.dart';
 import 'package:pfeprojectcar/features/shop/view/home/widget/product_card_detail/widget/rating_share.dart';
 import 'package:pfeprojectcar/utils/constants/sizes.dart';
-import 'package:pfeprojectcar/utils/helpers/helper_function.dart';
 import 'package:readmore/readmore.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
+  const ProductDetailScreen({super.key, required this.carProducts});
+  final CarModels carProducts ;
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context) ;
     return    Scaffold(
       bottomNavigationBar: const CustomAddButtonToCart(),
       body: SingleChildScrollView(
