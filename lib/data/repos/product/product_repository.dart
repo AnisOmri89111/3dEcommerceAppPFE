@@ -41,8 +41,21 @@ class ProductRepository extends GetxController {
     }on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     }catch (e) {
-    throw 'Something went wrong , please try again ${e.toString()}' ;
+    throw 'Something went wrong , please try again ' ;
     }
   }
-
+  Future <List<CarModels>> getFavouriteProducts(List<String> productIds) async {
+    try {
+      final snapshot = await _db.collection('products').where(FieldPath.documentId , whereIn: productIds).get() ;
+      return snapshot.docs.map((querySnapshot) => CarModels.fromSnapshot(querySnapshot)).toList();
+      
+    } on FirebaseException catch(e) {
+      throw TFirebaseException(e.code).message;}
+    on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    }catch (e) {
+    throw 'Something went wrong , please try again ${e.toString()}' ;
+    }
+  
+  }
 }

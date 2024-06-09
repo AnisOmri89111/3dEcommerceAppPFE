@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:pfeprojectcar/common/styles/shadows.dart';
 import 'package:pfeprojectcar/common/widgets/custom_shapes/container/circular_container.dart';
 import 'package:pfeprojectcar/common/widgets/icons/circular_icon.dart';
+import 'package:pfeprojectcar/common/widgets/icons/favourite_icon/favourite_icon.dart';
 import 'package:pfeprojectcar/common/widgets/texts/section_heading.dart';
 import 'package:pfeprojectcar/features/shop/models/car/car_model.dart';
 import 'package:pfeprojectcar/features/shop/view/home/widget/product_card/product_price.dart';
@@ -59,13 +60,10 @@ class CustomProductCardVertical extends StatelessWidget {
                   ),
 
                   //Favourute Icon button
-                  const Positioned(
+                   Positioned(
                       top: 0,
                       right: 0,
-                      child: CustomCircularIcon(
-                        icon: Iconsax.heart5,
-                        color: Colors.red,
-                      ))
+                      child: FavouriteIcons(productId: carProducts.id,))
                 ],
               ),
             ),

@@ -13,6 +13,7 @@ import 'package:pfeprojectcar/utils/exceptions/firebase_exceptions.dart';
 import 'package:pfeprojectcar/utils/exceptions/format_exceptions.dart';
 import 'package:pfeprojectcar/utils/exceptions/platform_exceptions.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:pfeprojectcar/utils/local_storage/localstoragehelper.dart';
 class AuthenticationRepository extends GetxController {
 static AuthenticationRepository get instance => Get.find() ;
 
@@ -30,6 +31,7 @@ screenRedirect() async{
   final  user = _auth.currentUser ;
   if (user != null) {
     if (user.emailVerified) {
+      await TLocalStorage.init(user.uid);
       Get.offAll(() => const NavigationScreen());
     }else{
       Get.offAll(() =>  EmailVerificationScreen(email:_auth.currentUser?.email  ,));

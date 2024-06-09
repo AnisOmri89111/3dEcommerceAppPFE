@@ -20,7 +20,7 @@ class ProductDetailScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child : Column(
           children: [
-            const CustomProductImageSlider(),
+             CustomProductImageSlider(products: carProducts,),
            //Product Details
            Padding(
             padding:const EdgeInsets.only(right: TSizes.defaultSpace , left:  TSizes.defaultSpace , bottom:  TSizes.defaultSpace),
